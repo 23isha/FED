@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container{
+                width:300px;
+                border:1px solid black;
+            }
+            .display{
+                text-align: right;
+            }
+            .display input{
+                width:100%;
+            }
+            .button{
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="display">
+                <input type="text" id="result"/>
+            </div>
+            <div class="button">
+                <button onclick="toDisplay('(')">(</button>
+                <button onclick="toDisplay(')')">)</button>
+                <button onclick="toClear('CE')">CE</button>
+                <button onclick="Back('C')">C</button>
+                <button onclick="toDisplay('1')">1</button>
+                <button onclick="toDisplay('2')">2</button>
+                <button onclick="toDisplay('3')">3</button>
+                <button onclick="toDisplay('4')">4</button>
+                <button onclick="toDisplay('5')">5</button>
+                <button onclick="toDisplay('6')">6</button>
+                <button onclick="toDisplay('7')">7</button>
+                <button onclick="toDisplay('8')">8</button>
+                <button onclick="toDisplay('9')">9</button>
+                <button onclick="toDisplay('0')">0</button>
+                <button onclick="toDisplay('.')">.</button>
+                <button onclick="toDisplay('+')">+</button>
+                <button onclick="toDisplay('-')">-</button>
+                <button onclick="toDisplay('*')">*</button>
+                <button onclick="toDisplay('/')">/</button>
+                <button onclick="toCal('=')">=</button>
+            </div>
+        </div>
+        <script>
+            let display=document.getElementById("result");
+          function toDisplay(value) {
+            display.value+=value;
+          } 
+          function toClear(){
+            display.value="";
+          }
+          function Back(){
+            var ev=document.getElementById("result");
+            ev.value=ev.value.slice(0,-1);
+          }
+          function toCal(){
+            try{
+                display.value=eval(display.value);
+            }
+            catch{
+                console.log("err");
+            }
+          }
+        </script>
+    </body>
+</html>
